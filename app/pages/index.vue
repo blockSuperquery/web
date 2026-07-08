@@ -1,12 +1,9 @@
 <script setup lang="ts">
-defineOgImageComponent('Nuxt', {
-  title: 'Query at super speed.',
-  description: 'Rust-native, SubQuery-compatible blockchain indexing.'
-})
-
 useSeoMeta({
   description: 'A high-integrity indexing framework designed for the most demanding blockchain data pipelines. Performance of Rust, familiarity of SubQuery.',
-  keywords: 'blockchain indexing, rust, subquery, graphql, ethereum indexer, substrate indexer, blockchain infrastructure, web3 data'
+  keywords: 'blockchain indexing, rust, subquery, graphql, ethereum indexer, substrate indexer, blockchain infrastructure, web3 data',
+  ogImage: '/superquery-mark.svg',
+  ogImageAlt: 'SuperQuery — Rust-native blockchain indexing framework'
 })
 
 useSchemaOrg([
