@@ -1,8 +1,13 @@
 <div align="center">
 
-# SuperQuery — Web
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./public/superquery-wordmark-dark.svg">
+  <img alt="SuperQuery" src="./public/superquery-wordmark.svg" width="440">
+</picture>
 
 ### Query at super speed.
+
+##### The Web / Landing Portal
 
 **`RUST-NATIVE` · `SUBQUERY COMPATIBLE`**
 
@@ -40,6 +45,37 @@ For the indexing engine itself, see the SuperQuery core (Rust) repository.
 - [Nuxt UI](https://ui.nuxt.com) — component library
 - [pnpm](https://pnpm.io) — package manager
 - Deployed on [Vercel](https://vercel.com)
+
+## Platform Roadmap & Progress
+
+SuperQuery is built test-first, with every engine milestone gated by
+**differential tests against the reference SubQuery implementation** (schema and
+data asserted byte-identical before a gate passes).
+
+**Delivered**
+
+- [x] Rust workspace + crate topology (engine · store · config · node/query/cli)
+- [x] Node & database configuration ported 1:1
+- [x] Core engine types and trait seams (`BlockchainService`, `ProjectService`, `Store`, `BlockDispatcher`)
+- [x] **Gate 1** — live connectivity verified against real RPC + real Postgres
+- [x] PostgreSQL storage layer: schema-introspection differ + golden-fixture pipeline
+- [x] GraphQL schema → DDL generation — **Gate 2 (schema)** byte-identical to reference
+- [x] Direct-DB model (upsert · delete · get · filtered queries) — **Gate 2 (data)** byte-identical
+- [x] Marketing + docs web portal (this repo)
+
+**In progress**
+
+- [ ] Metadata model, write-behind cache, historical `_block_range`
+- [ ] Enums, embedded JSON types, relations / foreign keys
+
+**Planned**
+
+- [ ] Fetch + dispatch pipeline (**Gate 3**)
+- [ ] Chain integration (Substrate + EVM) — first end-to-end index (**Gate 4 · MVP**)
+- [ ] Proof-of-index merkle cross-verification (**Gate 5**)
+- [ ] Rust / WASM mapping execution (**Gate 6**)
+- [ ] Dictionary, reorg/rewind, multi-worker & multi-chain
+- [ ] GraphQL query service, admin / health endpoints, Prometheus metrics
 
 ## Setup
 
