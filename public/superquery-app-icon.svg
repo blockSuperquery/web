@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SuperQuery App Icon</title>
+  <desc id="desc">Rounded square app icon for SuperQuery with Q lightning logo mark.</desc>
+  <defs>
+    <linearGradient id="tile" x1="64" y1="32" x2="448" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F6FAFF"/>
+    </linearGradient>
+    <linearGradient id="superqueryRed" x1="135" y1="118" x2="373" y2="227" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF4A3D"/>
+      <stop offset="1" stop-color="#DC2626"/>
+    </linearGradient>
+    <linearGradient id="superqueryBlue" x1="373" y1="229" x2="135" y2="382" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="superqueryBolt" x1="261" y1="252" x2="421" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <filter id="tileShadow" x="36" y="36" width="440" height="440" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect x="56" y="56" width="400" height="400" rx="96" fill="url(#tile)" filter="url(#tileShadow)"/>
+  <rect x="56.75" y="56.75" width="398.5" height="398.5" rx="95.25" stroke="#D8E3F8" stroke-width="1.5"/>
+
+  <path d="M133 259C133 190.517 188.517 135 257 135C325.483 135 381 190.517 381 259"
+        stroke="url(#superqueryRed)" stroke-width="48" stroke-linecap="round"/>
+  <path d="M381 259C381 327.483 325.483 383 257 383C188.517 383 133 327.483 133 259"
+        stroke="url(#superqueryBlue)" stroke-width="48" stroke-linecap="round"/>
+  <path d="M263 267L424 452L333 361H386L270 241L300 309H228L263 267Z"
+        fill="url(#superqueryBolt)"/>
+</svg>
