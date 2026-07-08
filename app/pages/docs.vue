@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Docs — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Docs',
+  description: 'SuperQuery documentation — architecture, Rust handlers, GraphQL schema definitions, and deployment guides for the high-integrity blockchain indexing framework.'
+})
 </script>
 
 <template>

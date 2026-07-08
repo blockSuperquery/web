@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Examples — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Examples',
+  description: 'Reference implementations built with SuperQuery — ERC-20 indexers, cross-chain aggregators, Substrate extrinsic handlers, and GraphQL API deployments.'
+})
 </script>
 
 <template>

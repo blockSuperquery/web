@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Changelog — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Changelog',
+  description: 'Release notes for SuperQuery — SDK versions, handler API changes, performance improvements, and breaking changes across the indexing framework.'
+})
 </script>
 
 <template>

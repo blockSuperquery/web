@@ -1,6 +1,9 @@
 <script setup lang="ts">
-const title = 'Portal — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Portal',
+  description: 'SuperQuery managed portal for deploying, monitoring, and scaling your indexers.',
+  robots: 'noindex, nofollow'
+})
 </script>
 
 <template>

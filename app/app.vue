@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const title = 'SuperQuery — High-Integrity Blockchain Infrastructure'
-const description = 'A high-integrity indexing framework designed for the most demanding blockchain data pipelines. Performance of Rust, familiarity of SubQuery.'
-
 useHead({
+  titleTemplate: (chunk?: string) => chunk ? `${chunk} — SuperQuery` : 'SuperQuery — High-Integrity Blockchain Infrastructure',
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'theme-color', content: '#07111F', media: '(prefers-color-scheme: dark)' },
+    { name: 'theme-color', content: '#F7F9FB', media: '(prefers-color-scheme: light)' }
   ],
   link: [
     { rel: 'icon', href: '/superquery-app-icon.svg', type: 'image/svg+xml' }
@@ -15,11 +15,8 @@ useHead({
 })
 
 useSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: '/superquery-mark.svg',
+  ogType: 'website',
+  ogSiteName: 'SuperQuery',
   twitterCard: 'summary_large_image'
 })
 

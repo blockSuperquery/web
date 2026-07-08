@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Status — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Status',
+  description: 'Live network status for SuperQuery — indexer uptime, tail latency, throughput, and per-chain synchronization health.'
+})
 </script>
 
 <template>

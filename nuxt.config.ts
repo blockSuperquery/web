@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxtjs/seo'
   ],
 
   devtools: {
@@ -16,6 +17,39 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2026-06-30',
+
+  site: {
+    url: 'https://superquery.io',
+    name: 'SuperQuery',
+    description: 'A high-integrity indexing framework designed for the most demanding blockchain data pipelines. Performance of Rust, familiarity of SubQuery.',
+    defaultLocale: 'en',
+    indexable: true
+  },
+
+  sitemap: {
+    exclude: ['/portal/**']
+  },
+
+  robots: {
+    disallow: ['/portal']
+  },
+
+  ogImage: {
+    fonts: ['Space+Grotesk:700', 'Inter:400']
+  },
+
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: 'SuperQuery',
+      url: 'https://superquery.io',
+      logo: 'https://superquery.io/superquery-mark.svg',
+      sameAs: [
+        'https://github.com/superquery/superquery-sdk',
+        'https://discord.gg/superquery'
+      ]
+    }
+  },
 
   ui: {
     fonts: true,

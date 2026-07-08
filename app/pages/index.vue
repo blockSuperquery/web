@@ -1,8 +1,24 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'SuperQuery — High-Integrity Blockchain Infrastructure',
-  description: 'A high-integrity indexing framework designed for the most demanding blockchain data pipelines. Performance of Rust, familiarity of SubQuery.'
+defineOgImageComponent('Nuxt', {
+  title: 'Query at super speed.',
+  description: 'Rust-native, SubQuery-compatible blockchain indexing.'
 })
+
+useSeoMeta({
+  description: 'A high-integrity indexing framework designed for the most demanding blockchain data pipelines. Performance of Rust, familiarity of SubQuery.',
+  keywords: 'blockchain indexing, rust, subquery, graphql, ethereum indexer, substrate indexer, blockchain infrastructure, web3 data'
+})
+
+useSchemaOrg([
+  defineSoftwareApp({
+    name: 'SuperQuery',
+    description: 'High-integrity blockchain indexing framework — Rust-native, SubQuery-compatible.',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Linux, macOS, Windows',
+    offers: { '@type': 'Offer', price: '0' }
+  }),
+  defineWebPage({ '@type': 'WebPage' })
+])
 
 const workflowSteps = [
   { n: 1, title: 'Define Schema', copy: 'Standard GraphQL schema definition for your entities.' },

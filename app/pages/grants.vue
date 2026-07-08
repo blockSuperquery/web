@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Grants — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Grants',
+  description: 'SuperQuery grants and ecosystem funding — build open-source indexers, tooling, and dashboards on the high-integrity indexing framework.'
+})
 </script>
 
 <template>

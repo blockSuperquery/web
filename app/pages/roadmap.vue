@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Roadmap — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'Roadmap',
+  description: 'SuperQuery development roadmap — current v0.8 production alpha scope, planned v1.0 stability milestones, distributed ingestion, and WASM sandboxing.'
+})
 </script>
 
 <template>

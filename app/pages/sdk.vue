@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const title = 'Sdk — SuperQuery'
-useSeoMeta({ title })
+useSeoMeta({
+  title: 'SDK',
+  description: 'SuperQuery SDK reference — Rust APIs for chain fetchers, event handlers, stores, and code generation. Build production-grade blockchain indexers.'
+})
 </script>
 
 <template>
