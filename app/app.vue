@@ -23,6 +23,12 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
+const colorMode = useColorMode()
+const isDark = computed({
+  get: () => colorMode.value === 'dark',
+  set: (v) => { colorMode.preference = v ? 'dark' : 'light' }
+})
+
 const primaryNav = [
   { label: 'SDK', to: '/sdk' },
   { label: 'Documentation', to: '/docs' },
@@ -51,9 +57,9 @@ const email = ref('')
 
 <template>
   <UApp>
-    <header class="sticky top-0 z-50 border-b border-cool-border bg-cloud-gray/85 backdrop-blur-md">
+    <header class="sticky top-0 z-50 border-b border-subtle bg-page/85 backdrop-blur-md">
       <div class="container-content flex h-16 items-center justify-between gap-8">
-        <NuxtLink to="/" class="flex items-center gap-2 text-deep-ink">
+        <NuxtLink to="/" class="flex items-center gap-2 text-heading">
           <AppLogo variant="mark" class="h-8 w-8 shrink-0" />
           <span class="font-display text-xl font-bold tracking-tight">SuperQuery</span>
         </NuxtLink>
@@ -63,7 +69,7 @@ const email = ref('')
             v-for="item in primaryNav"
             :key="item.to"
             :to="item.to"
-            class="text-sm text-neutral-600 transition-colors hover:text-primary-600"
+            class="text-sm text-fg-muted transition-colors hover:text-primary-600"
             active-class="!text-primary-600 border-b-2 border-primary-600 font-semibold"
           >
             {{ item.label }}
@@ -71,6 +77,18 @@ const email = ref('')
         </nav>
 
         <div class="flex items-center gap-2">
+          <ClientOnly>
+            <UButton
+              :icon="isDark ? 'i-lucide-sun' : 'i-lucide-moon'"
+              variant="ghost"
+              color="neutral"
+              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+              @click="isDark = !isDark"
+            />
+            <template #fallback>
+              <div class="h-8 w-8" />
+            </template>
+          </ClientOnly>
           <UButton
             to="https://github.com/superquery/superquery-sdk"
             target="_blank"
@@ -83,7 +101,7 @@ const email = ref('')
           <UButton
             to="/sdk"
             color="primary"
-            class="border border-deep-ink font-mono text-xs uppercase tracking-wider"
+            class="border border-subtle font-mono text-xs uppercase tracking-wider"
           >
             Get started
           </UButton>
@@ -95,20 +113,20 @@ const email = ref('')
       <NuxtPage />
     </UMain>
 
-    <footer class="border-t border-cool-border bg-white pt-16 pb-8">
+    <footer class="border-t border-subtle bg-surface pt-16 pb-8">
       <div class="container-content grid grid-cols-1 gap-8 md:grid-cols-4">
         <div class="space-y-3">
-          <NuxtLink to="/" class="flex items-center gap-2 text-deep-ink">
+          <NuxtLink to="/" class="flex items-center gap-2 text-heading">
             <AppLogo variant="mark" class="h-6 w-6" />
             <span class="font-display text-lg font-bold">SuperQuery</span>
           </NuxtLink>
-          <p class="text-sm text-neutral-600">
+          <p class="text-sm text-fg-muted">
             High-performance indexing infrastructure for the decentralized web.
           </p>
         </div>
 
         <div>
-          <h4 class="eyebrow mb-4 text-deep-ink">
+          <h4 class="eyebrow mb-4 text-heading">
             Developers
           </h4>
           <ul class="space-y-2">
@@ -116,7 +134,7 @@ const email = ref('')
               <NuxtLink
                 :to="item.to"
                 :target="item.target"
-                class="text-sm text-neutral-600 transition-colors hover:text-primary-600"
+                class="text-sm text-fg-muted transition-colors hover:text-primary-600"
               >
                 {{ item.label }}
               </NuxtLink>
@@ -125,7 +143,7 @@ const email = ref('')
         </div>
 
         <div>
-          <h4 class="eyebrow mb-4 text-deep-ink">
+          <h4 class="eyebrow mb-4 text-heading">
             Community
           </h4>
           <ul class="space-y-2">
@@ -133,7 +151,7 @@ const email = ref('')
               <NuxtLink
                 :to="item.to"
                 :target="item.target"
-                class="text-sm text-neutral-600 transition-colors hover:text-primary-600"
+                class="text-sm text-fg-muted transition-colors hover:text-primary-600"
               >
                 {{ item.label }}
               </NuxtLink>
@@ -142,7 +160,7 @@ const email = ref('')
         </div>
 
         <div>
-          <h4 class="eyebrow mb-4 text-deep-ink">
+          <h4 class="eyebrow mb-4 text-heading">
             Newsletter
           </h4>
           <form
@@ -154,12 +172,12 @@ const email = ref('')
               type="email"
               placeholder="email@infrastructure.com"
               class="w-full"
-              :ui="{ base: 'border border-cool-border bg-white rounded-sm' }"
             />
             <UButton
               type="submit"
               block
-              class="bg-deep-ink font-mono text-xs uppercase tracking-wider text-white hover:bg-deep-ink/90"
+              color="neutral"
+              class="font-mono text-xs uppercase tracking-wider"
             >
               Subscribe
             </UButton>
@@ -167,11 +185,11 @@ const email = ref('')
         </div>
       </div>
 
-      <div class="container-content mt-12 flex flex-col items-center justify-between gap-4 border-t border-cool-border pt-6 md:flex-row">
-        <p class="text-xs text-neutral-600">
+      <div class="container-content mt-12 flex flex-col items-center justify-between gap-4 border-t border-subtle pt-6 md:flex-row">
+        <p class="text-xs text-fg-muted">
           © {{ new Date().getFullYear() }} SuperQuery. Built for high-integrity infrastructure.
         </p>
-        <div class="flex items-center gap-6 text-neutral-600">
+        <div class="flex items-center gap-6 text-fg-muted">
           <UButton
             to="https://github.com/superquery/superquery-sdk"
             target="_blank"

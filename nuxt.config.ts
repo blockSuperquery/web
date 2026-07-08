@@ -19,7 +19,13 @@ export default defineNuxtConfig({
 
   ui: {
     fonts: true,
-    colorMode: false
+    colorMode: true
+  },
+
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
+    classSuffix: ''
   },
 
   fonts: {

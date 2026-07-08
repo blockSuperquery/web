@@ -33,7 +33,7 @@
   --color-neutral-900: #0F172A;
   --color-neutral-950: #07111F;
 
-  /* Design tokens */
+  /* Absolute brand tokens (do NOT switch with theme — used for intentionally-dark panels) */
   --color-deep-ink:    #07111F;
   --color-signal-red:  #EF4444;
   --color-rust-orange: #C2410C;
@@ -60,6 +60,47 @@
   --container-content: 1200px;
 }
 
+/* -------------------------------------------------------------------------
+   Theme-switchable semantic tokens.
+   The underlying --sq-* vars flip via useColorMode() adding `.dark` to <html>.
+   Exposing them as --color-* in @theme gives us proper Tailwind utilities:
+     bg-page, bg-surface, bg-surface-muted, text-heading, text-fg, text-fg-muted,
+     border-subtle — all with opacity modifier support (e.g. bg-page/85).
+   Brand tokens above stay absolute so intentionally-dark panels remain dark
+   in both modes (roadmap, terminal cards, dark CTA panel).
+   ------------------------------------------------------------------------- */
+:root {
+  --sq-page:            #F7F9FB;                    /* cloud-gray */
+  --sq-surface:         #FFFFFF;
+  --sq-surface-muted:   #F2F4F6;
+  --sq-heading:         #07111F;                    /* deep-ink */
+  --sq-fg:              #191C1E;
+  --sq-fg-muted:        #434655;
+  --sq-border-subtle:   #E2E8F0;                    /* cool-border */
+  --sq-grid-dot:        #E2E8F0;
+}
+
+.dark {
+  --sq-page:            #07111F;                    /* deep-ink */
+  --sq-surface:         #0F172A;                    /* neutral-900 */
+  --sq-surface-muted:   #191C1E;                    /* neutral-800 */
+  --sq-heading:         #F7F9FB;                    /* cloud-gray */
+  --sq-fg:              #E2E8F0;
+  --sq-fg-muted:        #94A3B8;
+  --sq-border-subtle:   rgba(255, 255, 255, 0.08);
+  --sq-grid-dot:        rgba(255, 255, 255, 0.06);
+}
+
+@theme inline {
+  --color-page:           var(--sq-page);
+  --color-surface:        var(--sq-surface);
+  --color-surface-muted:  var(--sq-surface-muted);
+  --color-heading:        var(--sq-heading);
+  --color-fg:             var(--sq-fg);
+  --color-fg-muted:       var(--sq-fg-muted);
+  --color-subtle:         var(--sq-border-subtle);
+}
+
 /* Design system utilities */
 @utility container-content {
   max-width: var(--container-content);
@@ -76,29 +117,29 @@
   text-transform: uppercase;
 }
 
-/* Body defaults per design system */
+/* Body defaults per design system — switches with theme */
 body {
-  background-color: var(--color-cloud-gray);
-  color: var(--color-neutral-800);
+  background-color: var(--sq-page);
+  color: var(--sq-fg);
   font-family: var(--font-sans);
 }
 
-/* Space Grotesk for headings globally */
+/* Space Grotesk for headings globally — heading color switches with theme */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: var(--color-deep-ink);
+  color: var(--sq-heading);
   letter-spacing: -0.01em;
 }
 
-/* Isometric dot grid used in hero backgrounds */
+/* Isometric dot grid used in hero backgrounds — grid dot fades with theme */
 .isometric-grid {
-  background-image: radial-gradient(var(--color-cool-border) 1px, transparent 1px);
+  background-image: radial-gradient(var(--sq-grid-dot) 1px, transparent 1px);
   background-size: 24px 24px;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
-/* Rust-style syntax highlighting inside code blocks */
+/* Rust-style syntax highlighting inside code blocks (always on dark panels) */
 .code-syntax-rust .keyword { color: var(--color-rust-orange); }
-.code-syntax-rust .type    { color: var(--color-primary-600); }
-.code-syntax-rust .string  { color: #059669; }
+.code-syntax-rust .type    { color: var(--color-primary-400); }
+.code-syntax-rust .string  { color: #34D399; }
 .code-syntax-rust .comment { color: #64748B; }
